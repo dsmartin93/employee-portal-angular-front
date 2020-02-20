@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { DebugModule } from './debug/debug.module';
+import { TranslateModule, TranslatePipe, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 @NgModule({
   declarations: [
@@ -16,9 +20,26 @@ import { DebugModule } from './debug/debug.module';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    DebugModule
+    DebugModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      isolate: false
+    })
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
+
+
+/** TRANSLATE */
+export function HttpLoaderFactory(http: HttpClient): any {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

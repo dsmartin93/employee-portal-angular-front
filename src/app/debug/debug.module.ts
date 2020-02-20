@@ -5,6 +5,7 @@ import { DebugRoutingModule } from './debug-routing.module';
 import { DebugComponent } from './components/debug/debug.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     CommonModule,
     DebugRoutingModule,
     HttpClientModule,
+    TranslateModule,
     NgxJsonViewerModule
   ]
 })
