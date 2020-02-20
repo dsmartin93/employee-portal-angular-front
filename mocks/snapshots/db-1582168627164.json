@@ -1,0 +1,21 @@
+{
+  "testdata": [{
+      "id": 1,
+      "movie": "Army of Darkness",
+      "director": "Sam Raimi",
+      "cast": [
+        "Bruce Campbell",
+        "Embeth Davidtz"
+      ]
+    },
+    {
+      "id": 2,
+      "movie": "Kickboxer",
+      "director": "Mark Di Salle",
+      "cast": [
+        "Jean Claude Van Damme",
+        "Dennis Alexio"
+      ]
+    }
+  ]
+}
