@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { DebugService } from '../../services/debug.service';
 import { TestDataModel } from '../../models/testdata.model';
@@ -9,7 +10,7 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./debug.component.scss']
 })
 export class DebugComponent implements OnInit {
-  public hola: string;
+  public environment: any = environment;
   public response: Array<TestDataModel>;
 
   constructor(
