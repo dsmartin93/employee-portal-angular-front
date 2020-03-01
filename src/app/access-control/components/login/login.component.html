@@ -1,6 +1,14 @@
 <div class="container">
   <h2>{{ 'accessControl.login.title' | translate }}</h2>
 
+  <div *ngIf="loginError">
+    Error en el login
+  </div>
+
+  <div *ngIf="loading">
+    loading
+  </div>
+
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <!-- EMAIL FIELD -->
     <div class="row">
@@ -38,8 +46,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="login__button-container">
-          <button mat-raised-button color="primary"
-            type="submit">{{ 'accessControl.login.submit' | translate }}
+          <button mat-raised-button color="primary" type="submit">{{ 'accessControl.login.submit' | translate }}
           </button>
         </div>
       </div>
