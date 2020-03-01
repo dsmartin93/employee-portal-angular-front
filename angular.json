@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss",
+              "src/assets/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -61,6 +63,22 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "mocks": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.mocks.ts"
+                }
+              ]
             }
           }
         },
@@ -72,6 +90,12 @@
           "configurations": {
             "production": {
               "browserTarget": "front:build:production"
+            },
+            "dev":{
+              "browserTarget": "front:build:dev"
+            },
+            "mocks":{
+              "browserTarget": "front:build:mocks"
             }
           }
         },
@@ -93,6 +117,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +149,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front"
+    }
+  },
+  "defaultProject": "front",
+  "cli": {
+    "analytics": "dbebc41f-a5d2-45ec-b518-5d42264ae7c4"
+  }
 }
