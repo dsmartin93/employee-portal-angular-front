@@ -1,3 +1,10 @@
 {
-  "test": "This is just a test."
+  "test": "This is just a test.",
+  "accessControl.login.title": "Login",
+  "accessControl.login.form.password.label": "Password",
+  "accessControl.login.form.email.label": "E-mail",
+  "accessControl.login.submit": "Login",
+  "accessControl.login.password.minlenght": "This field must be at least 8 characters long",
+  "form.requiredError": "This field is required",
+  "form.emailError": "This is not a valid email"
 }

@@ -9,6 +9,7 @@ import { DebugModule } from './debug/debug.module';
 import { TranslateModule, TranslatePipe, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         deps: [HttpClient]
       },
       isolate: false
-    })
+    }),
+    BrowserAnimationsModule
 
   ],
   providers: [],
