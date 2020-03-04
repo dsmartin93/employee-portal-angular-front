@@ -1,10 +1,18 @@
+import { RegisterComponent } from './components/register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccessControlComponent } from './components/access-control/access-control.component';
 
 
 const routes: Routes = [
-  { path: '', component: AccessControlComponent }
+  {
+    path: '',
+    component: AccessControlComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  }
 
 ];
 

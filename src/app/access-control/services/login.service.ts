@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../shared/services/local-storage.service';
 import { Observable } from 'rxjs';
 import { AccessControlUserModel } from './../models/access-control-user.model';
 import { environment } from './../../../environments/environment.prod';
@@ -13,7 +14,8 @@ export class LoginService {
   public loggedUser: AccessControlUserModel;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private localStorageService: LocalStorageService
   ) { }
 
   public login(userEmail: string, userPassword: string): Observable<HttpResponse<AccessControlUserModel>> {
