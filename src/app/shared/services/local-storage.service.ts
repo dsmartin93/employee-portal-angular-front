@@ -8,4 +8,8 @@ export class LocalStorageService {
   constructor() { }
 
 
+  public setUserInfo(user: any) { }
+  public getUserInfo() { }
+
+
 }
