@@ -1,21 +1,45 @@
-import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpInterceptorService {
 
-  constructor() { }
+  private lastHttpCode: number;
 
-  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
+
+  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpResponse<any>> {
+
+    // Token JWT
+    const token: string = this.authService.getToken();
+    if (token !== null) {
+      request = request.clone({ headers: request.headers.set('Credentials', token) });
+    }
+
     return next.handle(request)
       .pipe(
-        map(
-          (event) => {
-            return event;
+        tap(
+          (response: HttpResponse<any>) => {
+            this.lastHttpCode = response.status;
+          },
+          (err: any) => {
+            if (err instanceof HttpErrorResponse) {
+              if ((token !== null) && (err.status === 401) && (this.lastHttpCode !== 401)) {
+                this.lastHttpCode = err.status;
+              }
+            }
+
+            this.authService.deleteToken();
+            this.router.navigate['/'];
           }
         )
       );

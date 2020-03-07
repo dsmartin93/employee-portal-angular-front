@@ -18,7 +18,7 @@ export class DebugComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    //this.testDebugService();
+    this.testDebugService();
     this.testMocks();
   }
 
