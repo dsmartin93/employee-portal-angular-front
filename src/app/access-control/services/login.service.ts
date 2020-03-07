@@ -27,6 +27,13 @@ export class LoginService {
       `${ environment.api.apiUrl }/access-control/login`, this.loginModel, { observe: 'response' }
     );
   }
+  public isAuthenticated(): boolean {
+    const userData: any = this.localStorageService.getUserInfo();
+    if (userData && JSON.parse(userData)) {
+      return true;
+    }
+    return false;
+  }
 
 
 }
