@@ -17,15 +17,21 @@ export class HttpInterceptorService {
     private router: Router
   ) { }
 
-  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpResponse<any>> {
-
+  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    this.authService.setToken('aasdfadsfasdfadsfadsf');
+    console.log('INTERCEPT!!');
     // Token JWT
+
+    /*
     const token: string = this.authService.getToken();
     if (token !== null) {
-      request = request.clone({ headers: request.headers.set('Credentials', token) });
+      request = request.clone({
+        headers: request.headers.set('Authorization', `Bearer ${ token }`)
+      });
     }
-
-    return next.handle(request)
+*/
+    return next.handle(request);
+    /*
       .pipe(
         tap(
           (response: HttpResponse<any>) => {
@@ -43,5 +49,7 @@ export class HttpInterceptorService {
           }
         )
       );
+      */
   }
 }
+

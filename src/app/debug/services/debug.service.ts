@@ -42,6 +42,7 @@ export class DebugService {
     return this.httpClient.put<TestDataModel>(`${ environment.api.apiUrl }/testdata/${ testdataObject.id }`, testdataObject);
   }
 
+  /*
   public testMocks(): any {
     return this.httpClient.get<any>(this.apiService.getTest('test_service')).subscribe((res) => {
       console.log(res);
@@ -50,4 +51,5 @@ export class DebugService {
     });
   }
 
+  */
 }

@@ -17,9 +17,10 @@ export class ApiService {
 
     // TEST
     this.api.set('test_service', '/TEST/TEST_SERVICE');
+    this.api.set('login', '/access-control/login');
   }
 
-  public getTest(id: string, params?: Array<string>): string {
+  public getApi(id: string, params?: Array<string>): string {
     let url = null;
     if (this.api.has(id)) {
       url = environment.api.apiUrl + this.api.get(id);
@@ -29,7 +30,6 @@ export class ApiService {
         });
       }
     }
-    console.log(url)
     return url;
   }
 

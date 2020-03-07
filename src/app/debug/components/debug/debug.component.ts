@@ -23,7 +23,7 @@ export class DebugComponent implements OnInit {
   }
 
   public testMocks(): void {
-    this.debugService.testMocks();
+   // this.debugService.testMocks();
   }
 
   public testDebugService(): void {

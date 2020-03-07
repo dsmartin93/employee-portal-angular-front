@@ -13,7 +13,7 @@ import { HttpResponse } from '@angular/common/http';
 export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup;
-  public RegisterError: boolean = false;
+  public registerError: boolean = false;
   public loading: boolean = false;
 
   constructor(
@@ -48,11 +48,14 @@ export class RegisterComponent implements OnInit {
   }
 
   private registerActions(res: HttpResponse<AccessControlUserModel>): void {
-    this.RegisterError = false;
-    if (res.body === null || res.status === 0) {
-      this.RegisterError = true;
-    } else {
+    this.registerError = false;
+    if (res.body === null || !res.ok) {
+      this.registerError = true;
       console.error(res);
+    } else {
+      // TODO -> Remove alert when alternative is available
+      alert('user registered succesfully');
+      console.log(res);
     }
 
   }
