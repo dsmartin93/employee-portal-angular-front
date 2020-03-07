@@ -1,3 +1,4 @@
+import { ApiService } from './../../core/services/api.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -11,7 +12,8 @@ import { TestDataModel } from '../models/testdata.model';
 export class DebugService {
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private apiService: ApiService
   ) { }
 
   public getAllTestData(): Observable<any> {
@@ -40,4 +42,14 @@ export class DebugService {
     return this.httpClient.put<TestDataModel>(`${ environment.api.apiUrl }/testdata/${ testdataObject.id }`, testdataObject);
   }
 
+  /*
+  public testMocks(): any {
+    return this.httpClient.get<any>(this.apiService.getTest('test_service')).subscribe((res) => {
+      console.log(res);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  */
 }
