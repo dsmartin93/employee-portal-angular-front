@@ -1,7 +1,6 @@
 import { LocalStorageService } from './../../shared/services/local-storage.service';
 import { Observable } from 'rxjs';
 import { AccessControlUserModel } from './../models/access-control-user.model';
-import { environment } from './../../../environments/environment.prod';
 import { LoginModel } from './../models/login.model';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -17,8 +16,9 @@ export class LoginService {
 
   constructor(
     private httpClient: HttpClient,
-    private authService: AuthService,
-    private apiService: ApiService
+    private localStorageService: LocalStorageService,
+    private apiService: ApiService,
+    private authService: AuthService
   ) { }
 
   public login(userEmail: string, userPassword: string): Observable<HttpResponse<AccessControlUserModel>> {

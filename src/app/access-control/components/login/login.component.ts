@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  private loginActions(res: HttpResponse<AccessControlUserModel>): void {
+  // TODO -> Check model
+  private loginActions(res: HttpResponse<any>): void {
     this.loginError = false;
     if (res.body === null || res.status === 0) {
       this.loginError = true;
