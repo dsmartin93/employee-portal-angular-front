@@ -26,8 +26,7 @@ export class LoginService {
       email: userEmail,
       password: userPassword
     };
-    return this.httpClient.post<any>(this.apiService.getApi('login'), this.loginModel, { observe: 'response' }
-    );
+    return this.httpClient.post<any>(this.apiService.getApi('login'), this.loginModel, { observe: 'response' });
   }
 
   public setAuthToken(token: string): void {

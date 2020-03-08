@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { AccessControlUserModel } from '../models/access-control-user.model';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class RegisterService {
   constructor(
     private httpClient: HttpClient,
     private authService: AuthService,
+    private apiService: ApiService
   ) { }
 
   public register(userEmail: string, userPassword: string): Observable<HttpResponse<AccessControlUserModel>> {
@@ -24,8 +26,7 @@ export class RegisterService {
       email: userEmail,
       password: userPassword
     };
-    return this.httpClient.post<any>(
-      `${ environment.api.apiUrl }/access-control/register`, this.registerModel, { observe: 'response' }
-    );
+    return this.httpClient.post<any>(this.apiService.getApi('register'), this.registerModel, { observe: 'response' });
+  
   }
 }
