@@ -6,6 +6,7 @@ import { LoginModel } from './../models/login.model';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from 'src/app/core/services/api.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class LoginService {
 
   constructor(
     private httpClient: HttpClient,
-    private localStorageService: LocalStorageService,
+    private authService: AuthService,
     private apiService: ApiService
   ) { }
 
@@ -28,14 +29,15 @@ export class LoginService {
     return this.httpClient.post<any>(this.apiService.getApi('login'), this.loginModel, { observe: 'response' }
     );
   }
-  /*
-  public isAuthenticated(): boolean {
-    const userData: any = this.localStorageService.getUser();
-    if (userData && JSON.parse(userData)) {
-      return true;
-    }
-    return false;
+
+  public setAuthToken(token: string): void {
+    this.authService.setToken(token);
   }
-*/
+
+  public setAuthUser(user: any): void {
+    this.authService.setUser(user);
+  }
+
+
 
 }

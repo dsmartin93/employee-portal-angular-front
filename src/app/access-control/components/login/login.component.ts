@@ -4,6 +4,7 @@ import { LoginService } from '../../services/login.service';
 import { HttpResponse } from '@angular/common/http';
 import { AccessControlUserModel } from '../../models/access-control-user.model';
 import { finalize } from 'rxjs/operators';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
+    private authService: AuthService
   ) { }
 
   public ngOnInit(): void {
@@ -53,7 +55,13 @@ export class LoginComponent implements OnInit {
     if (res.body === null || res.status === 0) {
       this.loginError = true;
     } else {
-      console.log(res.body);
+      this.loginService.setAuthToken(res.body.accessToken);
+      const userAux = {
+        id: res.body.id,
+        email: res.body.email,
+        role: res.body.role
+      };
+      this.loginService.setAuthUser(userAux);
     }
 
   }
