@@ -23,6 +23,8 @@ export class HttpInterceptorService {
       request = request.clone({
         headers: request.headers.set('Authorization', `Bearer ${ token }`)
       });
+      request = request.clone({ headers: request.headers.set('Accept', 'application/json') });
+      request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });
     }
     return next.handle(request).pipe(
       tap(

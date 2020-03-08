@@ -11,8 +11,8 @@ export class LocalStorageService {
   /*
   * JWT TOKEN LOCAL STORAGE
   */
-  public setJwtToken(_token): void {
-    localStorage.setItem('jwt', _token);
+  public setJwtToken(token: string): void {
+    localStorage.setItem('jwt', token);
   }
   public getJwtToken(): string {
     return localStorage.getItem('jwt');
@@ -25,8 +25,8 @@ export class LocalStorageService {
   /*
    * USER LOCAL STORAGE
    */
-  public setUser(_token): void {
-    localStorage.setItem('user', _token);
+  public setUser(user: any): void {
+    localStorage.setItem('user', user);
   }
 
   // TODO -> Check user type;

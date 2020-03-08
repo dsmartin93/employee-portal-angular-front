@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(
     private localStorageService: LocalStorageService
-    ) {
+  ) {
     const aux = localStorageService.getJwtToken();
     if (aux && (location.href.indexOf('/login'))) {
       this.token = aux;
@@ -28,19 +28,27 @@ export class AuthService {
   }
 
   // TODO -> Check tslint variable name rules.
-  public setToken(_token: string, _expiration?: moment.Moment): void {
-    this.token = _token;
-    this.expiration = _expiration;
-    this.localStorageService.setJwtToken(_token);
+  public setToken(token: string, expiration?: moment.Moment): void {
+    this.token = token;
+    this.expiration = expiration;
+    this.localStorageService.setJwtToken(token);
     this.userAuthorzed.next(true);
   }
 
-  public deleteToken(): void {
+  public deleteAuthData(): void {
     this.token = null;
     this.expiration = null;
     this.localStorageService.deleteJwdToken();
     this.localStorageService.deleteUser();
     this.userAuthorzed.next(false);
+  }
+
+  public getUser(): any {
+    return this.localStorageService.getUser();
+  }
+
+  public setUser(user: any): void {
+    this.localStorageService.setUser(user);
   }
 
   public isAuth(): boolean {

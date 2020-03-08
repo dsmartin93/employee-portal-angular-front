@@ -16,40 +16,5 @@ export class DebugService {
     private apiService: ApiService
   ) { }
 
-  public getAllTestData(): Observable<any> {
-    return this.httpClient.get<TestDataModel[]>(`${ environment.api.apiUrl }/testdata`)
-      .pipe(
-        map((res) => res.map((testdata) => new TestDataModel(testdata)))
-      );
-  }
 
-  public getTestDataById(id: number): Observable<any> {
-    return this.httpClient.get<TestDataModel>(`${ environment.api.apiUrl }/testdata/${ id }`)
-      .pipe(
-        map((res) => new TestDataModel(res))
-      );
-  }
-
-  public deleteTestData(id: number): Observable<any> {
-    return this.httpClient.delete<TestDataModel>(`${ environment.api.apiUrl }/testdata/${ id }`);
-  }
-
-  public postTestData(testdataObject: TestDataModel): Observable<any> {
-    return this.httpClient.post<TestDataModel>(`${ environment.api.apiUrl }/testdata`, testdataObject);
-  }
-
-  public putTestData(testdataObject: TestDataModel): Observable<any> {
-    return this.httpClient.put<TestDataModel>(`${ environment.api.apiUrl }/testdata/${ testdataObject.id }`, testdataObject);
-  }
-
-  /*
-  public testMocks(): any {
-    return this.httpClient.get<any>(this.apiService.getTest('test_service')).subscribe((res) => {
-      console.log(res);
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
-  */
 }

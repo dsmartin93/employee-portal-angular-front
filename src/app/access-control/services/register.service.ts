@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { AccessControlUserModel } from '../models/access-control-user.model';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class RegisterService {
 
   constructor(
     private httpClient: HttpClient,
-    private localStorageService: LocalStorageService
+    private authService: AuthService,
   ) { }
 
   public register(userEmail: string, userPassword: string): Observable<HttpResponse<AccessControlUserModel>> {

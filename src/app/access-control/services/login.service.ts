@@ -33,14 +33,11 @@ export class LoginService {
   public setAuthToken(token: string): void {
     this.authService.setToken(token);
   }
-  /*
-  public isAuthenticated(): boolean {
-    const userData: any = this.localStorageService.getUser();
-    if (userData && JSON.parse(userData)) {
-      return true;
-    }
-    return false;
+
+  public setAuthUser(user: any): void {
+    this.authService.setUser(user);
   }
-*/
+
+
 
 }
