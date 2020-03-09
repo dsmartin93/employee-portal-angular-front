@@ -1,5 +1,6 @@
+import { SidebarService } from './../../services/sidebar.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -11,9 +12,11 @@ export class HeaderComponent implements OnInit {
 
   public isAuth: boolean;
 
+
   constructor(
     private authService: AuthService,
     private router: Router,
+    private sidebarService: SidebarService
   ) { }
 
   public ngOnInit(): void {
@@ -25,4 +28,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  public toggleSidenav(): void {
+    this.sidebarService.toggle();
+  }
 }
