@@ -17,8 +17,8 @@ export class ApiService {
 
     // TEST
     this.api.set('test_service', '/TEST/TEST_SERVICE');
-    this.api.set('login', '/access-control/login');
-    this.api.set('register', '/access-control/register');
+    this.api.set('login', '/ac/login');
+    this.api.set('register', '/ac/register');
   }
 
   public getApi(id: string, params?: Array<string>): string {
