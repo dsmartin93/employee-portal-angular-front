@@ -26,12 +26,12 @@ export class LocalStorageService {
    * USER LOCAL STORAGE
    */
   public setUser(user: any): void {
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   // TODO -> Check user type;
   public getUser(): any {
-    return localStorage.getItem('user');
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   public deleteUser(): void {

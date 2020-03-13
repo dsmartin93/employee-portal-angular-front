@@ -5,6 +5,7 @@ import { HttpResponse } from '@angular/common/http';
 import { AccessControlUserModel } from '../../models/access-control-user.model';
 import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private authService: AuthService
+    private router: Router
   ) { }
 
   public ngOnInit(): void {
@@ -63,6 +64,7 @@ export class LoginComponent implements OnInit {
         role: res.body.role
       };
       this.loginService.setAuthUser(userAux);
+      this.router.navigate(['/dashboard']);
     }
 
   }

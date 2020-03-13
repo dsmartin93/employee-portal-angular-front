@@ -38,7 +38,7 @@ export class HttpInterceptorService {
             }
           }
 
-          this.authService.deleteToken();
+          this.authService.deleteAuthData();
           this.router.navigate(['/']);
         }
       )

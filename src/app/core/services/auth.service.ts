@@ -11,7 +11,7 @@ export class AuthService {
   private static sessionDuration: number = 2000000;
   private token: string = null;
   private expiration: moment.Moment = null;
-  private userAuthorzed: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  private userAuthorzed: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
   constructor(
     private localStorageService: LocalStorageService
@@ -27,7 +27,6 @@ export class AuthService {
     return this.token;
   }
 
-  // TODO -> Check tslint variable name rules.
   public setToken(token: string, expiration?: moment.Moment): void {
     this.token = token;
     this.expiration = expiration;
