@@ -17,7 +17,6 @@ export class AccessControlComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    console.log(this.authService.isAuth())
     if (this.authService.isAuth()) {
       this.router.navigate(['/dashboard']);
     } else if (this.router.url === '/') {

@@ -11,8 +11,6 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   public isAuth: boolean;
-
-
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -20,7 +18,15 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.isAuth = this.authService.isAuth();
+
+    this.authService.getUserAuthorized()
+      .subscribe(
+        (res) => {
+          this.isAuth = res;
+        },
+        (err) => {
+          console.error(err);
+        });
   }
 
   public logout(): void {
