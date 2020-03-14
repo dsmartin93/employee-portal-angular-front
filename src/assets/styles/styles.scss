@@ -1,3 +1,9 @@
+/* VARS */
+@import "vars/vars.scss";
+@import "vars/colors.scss";
+
+/* CORE */
+@import "core/grid.scss";
+
 /* VENDOR */
-@import "node_modules/bootstrap/scss/bootstrap-grid.scss";
 @import "vendor/material/index.scss";

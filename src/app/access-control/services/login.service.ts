@@ -16,7 +16,6 @@ export class LoginService {
 
   constructor(
     private httpClient: HttpClient,
-    private localStorageService: LocalStorageService,
     private apiService: ApiService,
     private authService: AuthService
   ) { }
