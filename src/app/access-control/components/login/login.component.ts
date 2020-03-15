@@ -1,10 +1,9 @@
+import { UserService } from 'src/app/users/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { HttpResponse } from '@angular/common/http';
-import { AccessControlUserModel } from '../../models/access-control-user.model';
 import { finalize } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private userService:UserService
   ) { }
 
   public ngOnInit(): void {
@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
         role: res.body.role
       };
       this.loginService.setAuthUser(userAux);
+      this.userService.initUser();
       this.router.navigate(['/dashboard']);
     }
 

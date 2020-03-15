@@ -23,7 +23,7 @@ export class MocksDataService {
   public createDb(): any {
     return {
       TEST: [],
-      ac: []
+      ac: [],
     };
   }
 }
