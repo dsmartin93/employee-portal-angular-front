@@ -18,7 +18,7 @@ export class ApiService {
     // TEST
     this.api.set('test_service', '/TEST/TEST_SERVICE');
 
-    // ACCESS CONTROL 
+    // ACCESS CONTROL
     this.api.set('login', '/ac/login');
     this.api.set('register', '/ac/register');
 
