@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ResponseInterceptor } from 'angular-in-memory-web-api';
 import test from './test/test.mocks';
 import accessControl from './access-control/access-control.mock';
+import user from './user/user.mock';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,8 @@ export class MocksDataService {
       return test(response, request);
     } else if (request.url.startsWith(environment.api.apiUrl + '/ac')) {
       return accessControl(response, request);
+    } else if (request.url.startsWith(environment.api.apiUrl + '/user')) {
+      return user(response, request);
     }
     return response;
   }
@@ -23,7 +26,8 @@ export class MocksDataService {
   public createDb(): any {
     return {
       TEST: [],
-      ac: []
+      ac: [],
+      user: []
     };
   }
 }

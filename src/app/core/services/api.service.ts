@@ -17,8 +17,14 @@ export class ApiService {
 
     // TEST
     this.api.set('test_service', '/TEST/TEST_SERVICE');
+
+    // ACCESS CONTROL 
     this.api.set('login', '/ac/login');
     this.api.set('register', '/ac/register');
+
+    // USER
+    this.api.set('get-user-info', '/user/get-user-info/');
+
   }
 
   public getApi(id: string, params?: Array<string>): string {
