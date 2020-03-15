@@ -1,4 +1,3 @@
-import { UserService } from 'src/app/users/services/user.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SidebarService } from './shared/services/sidebar.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -18,7 +17,6 @@ export class AppComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private sidebarService: SidebarService,
-    private userService: UserService,
     private authService: AuthService
   ) {
     this.translate.setDefaultLang('en');
@@ -29,8 +27,9 @@ export class AppComponent implements OnInit {
   public ngOnInit(): void {
     this.sidebarService.setSidenav(this.sidenav);
 
-    if (this.authService.isAuth) {
-      this.userService.initUser();
+    if (this.authService.isAuth()) {
+       console.log(this.authService.isAuth())
+     // this.userService.initUser();
     }
   }
 }

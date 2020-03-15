@@ -1,4 +1,3 @@
-import { UserService } from 'src/app/users/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
@@ -21,7 +20,6 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private userService:UserService
   ) { }
 
   public ngOnInit(): void {
@@ -64,7 +62,6 @@ export class LoginComponent implements OnInit {
         role: res.body.role
       };
       this.loginService.setAuthUser(userAux);
-      this.userService.initUser();
       this.router.navigate(['/dashboard']);
     }
 
