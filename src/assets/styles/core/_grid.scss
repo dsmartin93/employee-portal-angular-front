@@ -1,0 +1,40 @@
+@import 'vars/mixins.scss';
+@import 'vars/vars.scss';
+
+.container-adaptative {
+  outline: 1px solid red;
+  padding: 10px 10px 10px 10px;
+
+  @include sm {}
+
+  @include md {}
+
+  @include lg {}
+
+  @include xl {}
+}
+
+.container {
+  width: calc(#{$screen-xs-min} - 20px);
+  margin: auto;
+
+  @include sm {
+    width: calc(#{$screen-sm-min} - 20px);
+
+  }
+
+  @include md {
+    width: calc(#{$screen-md-min} - 20px);
+
+  }
+
+  @include lg {
+    width: calc(#{$screen-lg-min} - 20px);
+
+  }
+
+  @include xl {
+    width: calc(#{$screen-xl-min} - 20px);
+
+  }
+}
