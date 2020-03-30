@@ -1,0 +1,9 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div *ngIf="isAuth">
+      <button mat-button type="button" (click)="logout()">LogOut</button>
+      <button mat-button type="button" (click)="toggleSidenav()">Sidenav</button>
+    </div>  </mat-toolbar-row>
+  </mat-toolbar>
+<div>

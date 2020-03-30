@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
 import { HttpResponse } from '@angular/common/http';
-import { AccessControlUserModel } from '../../models/access-control-user.model';
 import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { AccessControlService } from '../../services/access-control.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService,
+    private accessControlService: AccessControlService,
+    private router: Router,
   ) { }
 
   public ngOnInit(): void {
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
     console.warn(this.loginForm);
     if (this.loginForm.valid) {
       this.loading = true;
-      this.loginService.login(this.email.value, this.password.value)
+      this.accessControlService.login(this.email.value, this.password.value)
         .pipe(
           finalize(() => { this.loading = false; })
         ).subscribe((res) => {
@@ -48,12 +49,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  private loginActions(res: HttpResponse<AccessControlUserModel>): void {
+  // TODO -> Check model
+  private loginActions(res: HttpResponse<any>): void {
     this.loginError = false;
     if (res.body === null || res.status === 0) {
       this.loginError = true;
     } else {
-      console.log(res.body);
+      this.accessControlService.setAuthToken(res.body.accessToken);
+      const userAux = {
+        id: res.body.id,
+        email: res.body.email,
+        role: res.body.role
+      };
+      this.accessControlService.setAuthUser(userAux);
+      this.router.navigate(['/dashboard']);
     }
 
   }

@@ -10,6 +10,7 @@ import { TranslateModule, TranslatePipe, TranslateLoader } from '@ngx-translate/
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       },
       isolate: false
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule
 
   ],
   providers: [],
