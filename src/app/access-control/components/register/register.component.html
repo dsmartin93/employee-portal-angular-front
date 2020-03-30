@@ -1,4 +1,4 @@
-<div class="container">
+<div class="register">
   <h2>{{ 'accessControl.register.title' | translate }}</h2>
 
   <div *ngIf="registerError">
@@ -11,8 +11,6 @@
 
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <!-- EMAIL FIELD -->
-    <div class="row">
-      <div class="col-sm-12">
         <mat-form-field>
           <mat-label>{{ 'accessControl.register.form.email.label' | translate }}</mat-label>
           <input matInput type="email" name="email" id="email" formControlName="email">
@@ -23,12 +21,8 @@
             {{ 'form.emailError' | translate }}
           </mat-error>
         </mat-form-field>
-      </div>
-    </div>
 
     <!-- PASSWORD FIELD -->
-    <div class="row">
-      <div class="col-sm-12">
         <mat-form-field>
           <mat-label>{{ 'accessControl.register.form.password.label' | translate }}</mat-label>
           <input matInput type="password" name="password" id="password" formControlName="password">
@@ -39,18 +33,12 @@
             {{ 'accessControl.register.password.minlenght' | translate}}
           </mat-error>
         </mat-form-field>
-      </div>
-    </div>
 
     <!-- SUBMIT FORM BUTTONS -->
-    <div class="row">
-      <div class="col-sm-12">
         <div class="register__button-container">
           <button mat-raised-button color="primary" type="submit">{{ 'accessControl.register.submit' | translate }}
           </button>
         </div>
-      </div>
-    </div>
 
   </form>
 </div>

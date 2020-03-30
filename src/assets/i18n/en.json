@@ -5,6 +5,11 @@
   "accessControl.login.form.email.label": "E-mail",
   "accessControl.login.submit": "Login",
   "accessControl.login.password.minlenght": "This field must be at least 8 characters long",
+  "accessControl.register.title": "Register",
+  "accessControl.register.form.password.label": "Password",
+  "accessControl.register.form.email.label": "E-mail",
+  "accessControl.register.submit": "Register",
+  "accessControl.register.password.minlenght": "This field must be at least 8 characters long",
   "form.requiredError": "This field is required",
   "form.emailError": "This is not a valid email"
 }

@@ -1,9 +1,9 @@
 import { AccessControlUserModel } from './../../models/access-control-user.model';
-import { RegisterService } from './../../services/register.service';
 import { FormGroup, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { HttpResponse } from '@angular/common/http';
+import { AccessControlService } from '../../services/access-control.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private registerService: RegisterService
+    private accessControlService: AccessControlService
   ) { }
 
   public ngOnInit(): void {
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     console.warn(this.registerForm);
     if (this.registerForm.valid) {
       this.loading = true;
-      this.registerService.register(this.email.value, this.password.value)
+      this.accessControlService.register(this.email.value, this.password.value)
         .pipe(
           finalize(() => { this.loading = false; })
         ).subscribe((res) => {

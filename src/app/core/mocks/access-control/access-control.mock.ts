@@ -1,4 +1,3 @@
-import { response } from 'express';
 import { HttpHeaders } from '@angular/common/http';
 
 export default function accessControl(response: any, request: any): any {
@@ -18,6 +17,12 @@ export default function accessControl(response: any, request: any): any {
     response.status = 200;
     response.body = require('./login.json');
   }
+
+  if (request.url.endsWith('register')) {
+    response.status = 200;
+    response.body = require('./register.json');
+  }
+
   return response;
 
 
