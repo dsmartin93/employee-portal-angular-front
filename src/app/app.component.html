@@ -1,5 +1,7 @@
 <mat-drawer-container class="app-container">
-  <mat-drawer #sidenav mode="side" closed>Drawer content</mat-drawer>
+  <mat-drawer class="mat-drawer" #sidenav mode="matDrawerMode" closed>
+    <app-mat-drawer-menu></app-mat-drawer-menu>
+  </mat-drawer>
   <mat-drawer-content>
 
     <app-header></app-header>
