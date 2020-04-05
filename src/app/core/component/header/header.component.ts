@@ -1,7 +1,7 @@
-import { SidebarService } from './../../services/sidebar.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { SidebarService } from 'src/app/shared/services/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   public isAuth: boolean;
+  public pathLogo: string = 'assets/images/logo.png';
+
   constructor(
     private authService: AuthService,
     private router: Router,

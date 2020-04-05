@@ -1,44 +1,56 @@
 <div class="register">
-  <h2>{{ 'accessControl.register.title' | translate }}</h2>
+  <mat-card>
 
-  <div *ngIf="registerError">
-    Register Error
-  </div>
+    <mat-card-header>
+      <mat-card-title>
+        <span>{{ 'accessControl.register.title' | translate }}</span>
+      </mat-card-title>
+    </mat-card-header>
 
-  <div *ngIf="loading">
-    loading
-  </div>
+    <mat-card-content [formGroup]="registerForm" (keydown.enter)="submitForm()">
 
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <!-- EMAIL FIELD -->
-        <mat-form-field>
-          <mat-label>{{ 'accessControl.register.form.email.label' | translate }}</mat-label>
-          <input matInput type="email" name="email" id="email" formControlName="email">
-          <mat-error *ngIf="email.hasError('required')">
-            {{ 'form.requiredError' | translate }}
-          </mat-error>
-          <mat-error *ngIf="email.hasError('email')">
-            {{ 'form.emailError' | translate }}
-          </mat-error>
-        </mat-form-field>
+      <!-- EMAIL FIELD -->
+      <mat-form-field>
+        <mat-label>{{ 'accessControl.register.form.email.label' | translate }}</mat-label>
+        <input matInput type="email" name="email" id="email" formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">
+          {{ 'form.requiredError' | translate }}
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+          {{ 'form.emailError' | translate }}
+        </mat-error>
+      </mat-form-field>
 
-    <!-- PASSWORD FIELD -->
-        <mat-form-field>
-          <mat-label>{{ 'accessControl.register.form.password.label' | translate }}</mat-label>
-          <input matInput type="password" name="password" id="password" formControlName="password">
-          <mat-error *ngIf="password.hasError('required')">
-            {{ 'form.requiredError' | translate }}
-          </mat-error>
-          <mat-error *ngIf="password.hasError('minlength')">
-            {{ 'accessControl.register.password.minlenght' | translate}}
-          </mat-error>
-        </mat-form-field>
+      <!-- PASSWORD FIELD -->
+      <mat-form-field>
+        <mat-label>{{ 'accessControl.register.form.password.label' | translate }}</mat-label>
+        <input matInput type="password" name="password" id="password" formControlName="password">
+        <mat-error *ngIf="password.hasError('required')">
+          {{ 'form.requiredError' | translate }}
+        </mat-error>
+        <mat-error *ngIf="password.hasError('minlength')">
+          {{ 'accessControl.register.password.minlenght' | translate}}
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
 
     <!-- SUBMIT FORM BUTTONS -->
-        <div class="register__button-container">
-          <button mat-raised-button color="primary" type="submit">{{ 'accessControl.register.submit' | translate }}
-          </button>
-        </div>
+    <mat-card-actions>
+      <div class="register__button-container">
+        <button mat-raised-button color="primary"
+          (click)="submitForm()">{{ 'accessControl.register.submit' | translate }}
+        </button>
+      </div>
+    </mat-card-actions>
 
-  </form>
+    <mat-card-footer>
+      <div *ngIf="registerError" class="register__error">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="loading">
+        <app-spinner></app-spinner>
+      </div>
+    </mat-card-footer>
+
+  </mat-card>
 </div>

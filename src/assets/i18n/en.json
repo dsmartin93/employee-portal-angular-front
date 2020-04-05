@@ -11,5 +11,8 @@
   "accessControl.register.submit": "Register",
   "accessControl.register.password.minlenght": "This field must be at least 8 characters long",
   "form.requiredError": "This field is required",
-  "form.emailError": "This is not a valid email"
+  "form.emailError": "This is not a valid email",
+  "header.button.login": "Login",
+  "header.button.logout": "Logout",
+  "header.button.register": "Register"
 }

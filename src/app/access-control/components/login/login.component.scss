@@ -1,3 +1,13 @@
+@import "src/assets/styles/vars/colors.scss";
+
 .login__button-container {
   text-align: right;
+}
+
+mat-card-footer {
+  text-align: center;
+
+  .login__error {
+    color: $color-error;
+  }
 }

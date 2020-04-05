@@ -4,6 +4,7 @@ import { HttpResponse } from '@angular/common/http';
 import { finalize } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AccessControlService } from '../../services/access-control.service';
+import { UserService } from 'src/app/users/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +16,13 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public loginError: boolean = false;
   public loading: boolean = false;
+  public errorMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private accessControlService: AccessControlService,
     private router: Router,
+    private userService: UserService
   ) { }
 
   public ngOnInit(): void {
@@ -34,8 +37,9 @@ export class LoginComponent implements OnInit {
   public get email(): AbstractControl { return this.loginForm.get('email'); }
   public get password(): AbstractControl { return this.loginForm.get('password'); }
 
-  public onSubmit(): void {
+  public submitForm(): void {
     console.warn(this.loginForm);
+    this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {
       this.loading = true;
       this.accessControlService.login(this.email.value, this.password.value)
@@ -50,10 +54,12 @@ export class LoginComponent implements OnInit {
   }
 
   // TODO -> Check model
-  private loginActions(res: HttpResponse<any>): void {
+  private loginActions(res: any): void {
     this.loginError = false;
-    if (res.body === null || res.status === 0) {
+    if (typeof res.body === 'undefined' || res.status === 0) {
       this.loginError = true;
+      // TODO -> Remove alert when alternative is available
+      this.errorMessage = res.error.message;
     } else {
       this.accessControlService.setAuthToken(res.body.accessToken);
       const userAux = {
@@ -62,6 +68,7 @@ export class LoginComponent implements OnInit {
         role: res.body.role
       };
       this.accessControlService.setAuthUser(userAux);
+      this.userService.initUser();
       this.router.navigate(['/dashboard']);
     }
 
