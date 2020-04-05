@@ -1,9 +1,22 @@
-
 <mat-toolbar color="primary">
   <mat-toolbar-row>
+    <img [src]="'assets/images/logo.png'" alt="logo">
     <div *ngIf="isAuth">
-      <button mat-button type="button" (click)="logout()">LogOut</button>
-      <button mat-button type="button" (click)="toggleSidenav()">Sidenav</button>
-    </div>  </mat-toolbar-row>
-  </mat-toolbar>
+      <button mat-button type="button" (click)="logout()">
+        {{ 'header.button.logout' | translate }}
+      </button>
+      <button mat-button type="button" (click)="toggleSidenav()">
+        Sidenav
+      </button>
+    </div>
+    <div *ngIf="!isAuth">
+      <a mat-button type="button" [routerLink]="['/login']" routerLinkActive="router-link-active">
+        {{ 'header.button.login' | translate }}
+      </a>
+      <a mat-button typer="button" [routerLink]="['/register']" routerLinkActive="router-link-active">
+        {{ 'header.button.register' | translate }}
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
 <div>
