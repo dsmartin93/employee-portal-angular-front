@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   public get email(): AbstractControl { return this.loginForm.get('email'); }
   public get password(): AbstractControl { return this.loginForm.get('password'); }
 
-  public submitClick(): void {
+  public submitForm(): void {
     console.warn(this.loginForm);
     this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {
@@ -59,8 +59,7 @@ export class LoginComponent implements OnInit {
     if (typeof res.body === 'undefined' || res.status === 0) {
       this.loginError = true;
       // TODO -> Remove alert when alternative is available
-      console.log(res.error.message)
-      this.errorMessage = res.body.message;
+      this.errorMessage = res.error.message;
     } else {
       this.accessControlService.setAuthToken(res.body.accessToken);
       const userAux = {

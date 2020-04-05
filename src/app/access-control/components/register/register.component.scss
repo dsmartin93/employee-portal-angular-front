@@ -1,3 +1,14 @@
+@import "src/assets/styles/vars/colors.scss";
+
+
 .register__button-container {
   text-align: right;
+}
+
+mat-card-footer {
+  text-align: center;
+
+  .register__error {
+    color: $color-error;
+  }
 }

@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <img [src]="'assets/images/logo.png'" alt="logo">
+    <img [src]="pathLogo" alt="logo">
     <div *ngIf="isAuth">
       <button mat-button type="button" (click)="logout()">
         {{ 'header.button.logout' | translate }}

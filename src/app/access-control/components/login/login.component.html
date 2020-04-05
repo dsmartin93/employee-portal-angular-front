@@ -1,5 +1,5 @@
-<div class="container">
-  <mat-card [formGroup]="loginForm" (keydown.enter)="submitClick()">
+<div class="container login">
+  <mat-card [formGroup]="loginForm" (keydown.enter)="submitForm()">
     <mat-card-header>
       <mat-card-title>
         <span>{{ 'accessControl.login.title' | translate }}</span>
@@ -32,25 +32,27 @@
         </mat-error>
       </mat-form-field>
 
-
-
     </mat-card-content>
+
+
+
     <!-- SUBMIT FORM BUTTONS -->
     <mat-card-actions>
       <div class="login__button-container">
-        <button mat-raised-button color="primary" (click)="submitClick()">
+        <button mat-raised-button color="primary" (click)="submitForm()">
           {{ 'accessControl.login.submit' | translate }}
         </button>
       </div>
     </mat-card-actions>
 
     <mat-card-footer>
-      <div *ngIf="loginError">
+      <div *ngIf="registerError" class="login__error">
         {{ errorMessage }}
       </div>
       <div *ngIf="loading">
-        loading
+        <app-spinner></app-spinner>
       </div>
     </mat-card-footer>
+
   </mat-card>
 </div>

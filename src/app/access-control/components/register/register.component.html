@@ -7,15 +7,7 @@
       </mat-card-title>
     </mat-card-header>
 
-    <mat-card-content [formGroup]="registerForm">
-
-      <div *ngIf="registerError">
-        Register Error
-      </div>
-
-      <div *ngIf="loading">
-        loading
-      </div>
+    <mat-card-content [formGroup]="registerForm" (keydown.enter)="submitForm()">
 
       <!-- EMAIL FIELD -->
       <mat-form-field>
@@ -40,13 +32,25 @@
           {{ 'accessControl.register.password.minlenght' | translate}}
         </mat-error>
       </mat-form-field>
+    </mat-card-content>
 
-      <!-- SUBMIT FORM BUTTONS -->
+    <!-- SUBMIT FORM BUTTONS -->
+    <mat-card-actions>
       <div class="register__button-container">
-        <button mat-raised-button color="primary" type="submit">{{ 'accessControl.register.submit' | translate }}
+        <button mat-raised-button color="primary"
+          (click)="submitForm()">{{ 'accessControl.register.submit' | translate }}
         </button>
       </div>
+    </mat-card-actions>
 
-    </mat-card-content>
+    <mat-card-footer>
+      <div *ngIf="registerError" class="register__error">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="loading">
+        <app-spinner></app-spinner>
+      </div>
+    </mat-card-footer>
+
   </mat-card>
 </div>
