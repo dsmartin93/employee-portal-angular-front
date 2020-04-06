@@ -3,7 +3,7 @@ import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +39,7 @@ export class HttpInterceptorService {
           }
 
           this.authService.deleteAuthData();
-          this.router.navigate(['/']);
+
         }
       )
     );

@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   public registerError: boolean = false;
   public loading: boolean = false;
+  public errorMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,13 +33,15 @@ export class RegisterComponent implements OnInit {
   public get email(): AbstractControl { return this.registerForm.get('email'); }
   public get password(): AbstractControl { return this.registerForm.get('password'); }
 
-  public onSubmit(): void {
+  public submitForm(): void {
     console.warn(this.registerForm);
     if (this.registerForm.valid) {
       this.loading = true;
       this.accessControlService.register(this.email.value, this.password.value)
         .pipe(
-          finalize(() => { this.loading = false; })
+          finalize(
+            () => { this.loading = false; }
+          )
         ).subscribe((res) => {
           this.registerActions(res);
         }, (err) => {
@@ -47,11 +50,12 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  private registerActions(res: HttpResponse<AccessControlUserModel>): void {
+  private registerActions(res: any): void {
     this.registerError = false;
     if (res.body === null || !res.ok) {
       this.registerError = true;
       console.error(res);
+      this.errorMessage = res.error.message;
     } else {
       // TODO -> Remove alert when alternative is available
       alert('user registered succesfully');

@@ -12,7 +12,10 @@ import { AuthService } from './core/services/auth.service';
 export class AppComponent implements OnInit {
 
   public sidebarOpen: boolean = false;
+  public matDrawerMode: string = 'over';
+
   @ViewChild('sidenav', { static: true }) public sidenav: MatSidenav;
+
 
   constructor(
     private translate: TranslateService,
@@ -28,8 +31,8 @@ export class AppComponent implements OnInit {
     this.sidebarService.setSidenav(this.sidenav);
 
     if (this.authService.isAuth()) {
-       console.log(this.authService.isAuth())
-     // this.userService.initUser();
+      console.log(this.authService.isAuth());
+      // this.userService.initUser();
     }
   }
 }
