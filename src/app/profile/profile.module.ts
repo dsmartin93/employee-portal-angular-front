@@ -10,6 +10,7 @@ import { ProfileInfoEducationComponent } from './components/profile-info-educati
 import { ProfileInfoPersonalComponent } from './components/profile-info-personal/profile-info-personal.component';
 import { ProfileInfoExperienceComponent } from './components/profile-info-experience/profile-info-experience.component';
 import { MatCardModule } from '@angular/material/card';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     ProfileRoutingModule,
     TranslateModule,
-    MatCardModule
+    MatCardModule,
+    NgxJsonViewerModule
   ]
 })
 export class ProfileModule { }

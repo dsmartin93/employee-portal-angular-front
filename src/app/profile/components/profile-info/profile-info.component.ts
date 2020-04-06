@@ -8,12 +8,15 @@ import { UserProfileService } from '../../services/user-profile.service';
 })
 export class ProfileInfoComponent implements OnInit {
 
+  public user: any;
+
   constructor(
     private userProfileService: UserProfileService
   ) { }
 
   public ngOnInit(): void {
     this.userProfileService.getProfileInfo();
+    this.user = this.userProfileService.user;
   }
 
 }

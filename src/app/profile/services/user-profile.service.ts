@@ -1,4 +1,7 @@
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,19 +10,21 @@ export class UserProfileService {
 
   public user: any = {};
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService,
+    private httpClient: HttpClient
+  ) { }
 
-  public getProfileInfo(): void {
-    this.user = {
-      basic: {
-        name: 'placeholderName',
-        surname1: 'placeholderSurname1',
-        surname2: 'placeholderSurname2'
+  public getProfileInfo(): any {
+
+    return this.httpClient.get<any>(this.apiService.getApi('get-profile-info')).subscribe(
+      (res) => {
+        this.user = res;
       },
-      contact: {
-        email: 'email@test.com',
-        phone: '645266447'
-      }
-    };
+      ((err) => {
+        console.error(err);
+      })
+    );
   }
+
 }
