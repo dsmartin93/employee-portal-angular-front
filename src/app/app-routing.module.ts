@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'debug',
     loadChildren: './debug/debug.module#DebugModule'
   },
+  {
+    path: 'profile',
+    canActivate: [AuthGuard],
+    loadChildren: './profile/profile.module#ProfileModule'
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

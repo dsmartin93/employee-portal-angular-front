@@ -14,5 +14,10 @@
   "form.emailError": "This is not a valid email",
   "header.button.login": "Login",
   "header.button.logout": "Logout",
-  "header.button.register": "Register"
+  "header.button.register": "Register",
+  "profile.title": "Profile",
+  "profile.info.personal.title": "Personal",
+  "profile.info.contact.title": "Contact",
+  "profile.info.education.title": "Education",
+  "profile.info.experience.title": "Experience"
 }

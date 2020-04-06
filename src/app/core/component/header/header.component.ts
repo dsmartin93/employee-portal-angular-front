@@ -11,7 +11,7 @@ import { SidebarService } from 'src/app/shared/services/sidebar.service';
 export class HeaderComponent implements OnInit {
 
   public isAuth: boolean;
-  public pathLogo: string = 'assets/images/logo.png';
+  public pathLogo: string = 'assets/images/logo.svg';
 
   constructor(
     private authService: AuthService,
