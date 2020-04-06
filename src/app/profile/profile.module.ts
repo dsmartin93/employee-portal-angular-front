@@ -9,14 +9,23 @@ import { ProfileInfoContactComponent } from './components/profile-info-contact/p
 import { ProfileInfoEducationComponent } from './components/profile-info-education/profile-info-education.component';
 import { ProfileInfoPersonalComponent } from './components/profile-info-personal/profile-info-personal.component';
 import { ProfileInfoExperienceComponent } from './components/profile-info-experience/profile-info-experience.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
-  declarations: [ProfileComponent, ProfileInfoComponent, ProfileInfoContactComponent, ProfileInfoEducationComponent, ProfileInfoPersonalComponent, ProfileInfoExperienceComponent],
+  declarations: [
+    ProfileComponent,
+    ProfileInfoComponent,
+    ProfileInfoContactComponent,
+    ProfileInfoEducationComponent,
+    ProfileInfoPersonalComponent,
+    ProfileInfoExperienceComponent
+  ],
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    TranslateModule
+    TranslateModule,
+    MatCardModule
   ]
 })
 export class ProfileModule { }

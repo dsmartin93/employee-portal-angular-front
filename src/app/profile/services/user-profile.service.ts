@@ -5,15 +5,21 @@ import { Injectable } from '@angular/core';
 })
 export class UserProfileService {
 
-  private user: any;
+  public user: any = {};
 
   constructor() { }
 
   public getProfileInfo(): void {
     this.user = {
-      name: 'placeholderName',
-      surname1: 'placeholderSurname1',
-      surname2: 'placeholderSurname2'
-    }
+      basic: {
+        name: 'placeholderName',
+        surname1: 'placeholderSurname1',
+        surname2: 'placeholderSurname2'
+      },
+      contact: {
+        email: 'email@test.com',
+        phone: '645266447'
+      }
+    };
   }
 }
