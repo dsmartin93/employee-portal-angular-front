@@ -5,6 +5,11 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <ngx-json-viewer [json]="user?.personal" [expanded]="true"></ngx-json-viewer>
+    <div *ngIf="!user?.personal">
+      <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="user?.personal">
+      <ngx-json-viewer [json]="user?.personal" [expanded]="true"></ngx-json-viewer>
+    </div>
   </mat-card-content>
 </mat-card>

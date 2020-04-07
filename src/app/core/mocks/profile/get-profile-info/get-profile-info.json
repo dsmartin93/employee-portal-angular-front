@@ -1,0 +1,57 @@
+{
+  "personal": {
+    "id": 1,
+    "user_name": "Diego",
+    "user_surname1": "Santaolalla",
+    "user_surname2": "Martín",
+    "user_address": "Plaza de las Peñuelas 5 7ºC, Madrid, Madrid, 28005"
+  },
+  "contact": {
+    "user_phone": "645266447",
+    "user_email": "test@test.com"
+  },
+  "education": [
+    {
+      "title": "Software engineer",
+      "type": "Bachelor's degree",
+      "university": "Universitat Oberta Catalunya",
+      "finished": true,
+      "date_start": "20-07-2018",
+      "date_end": "20-07-2020"
+    },
+    {
+      "title": "Web Applications Developer",
+      "type": "Certificate of Higher Education (HNC)",
+      "university": "CPIFP Los Enlaces",
+      "finished": true,
+      "date_start": "20-07-2017",
+      "date_end": "20-01-2021"
+    }
+  ],
+  "experience": [
+    {
+      "position": "Developer",
+      "company": "Advantic",
+      "date_start": "17-09-2017",
+      "date_end": "17-09-2018",
+      "city": "Zaragoza",
+      "comments": "Comments"
+    },
+    {
+      "position": "Angular developer",
+      "company": "DXA",
+      "date_start": "17-09-2018",
+      "date_end": "17-03-2019",
+      "city": "Zaragoza",
+      "comments": "Comments"
+    },
+    {
+      "position": "Angular developer",
+      "company": "Delatte",
+      "date_start": "17-09-2019",
+      "date_end": null,
+      "city": "Zaragoza",
+      "comments": "Comments"
+    }
+  ]
+}

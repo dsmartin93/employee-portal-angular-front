@@ -26,7 +26,7 @@ export class ApiService {
     this.api.set('get-user-info', '/user/get-user-info/');
 
     // PROFILE
-    this.api.set('get-profile-info', '/profile/get-profile-info');
+    this.api.set('get-profile-info', '/profile/get-profile-info/');
   }
 
   public getApi(id: string, params?: Array<string>): string {
