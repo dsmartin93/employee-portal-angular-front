@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-info-contact',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileInfoContactComponent implements OnInit {
 
+  @Input() public user: any;
+
   constructor() { }
 
   public ngOnInit(): void {
-  }
 
+
+  }
 }

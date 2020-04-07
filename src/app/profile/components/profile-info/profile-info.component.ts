@@ -9,7 +9,6 @@ import { UserProfileService } from '../../services/user-profile.service';
 export class ProfileInfoComponent implements OnInit {
 
   public user: any;
-
   constructor(
     private userProfileService: UserProfileService
   ) { }

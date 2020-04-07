@@ -1,16 +1,14 @@
-<ngx-json-viewer [json]="userProfileService.user" [expanded]="false"></ngx-json-viewer>
-
 <div class="profile-info__container">
   <div class="profile-info__card">
-    <app-profile-info-personal></app-profile-info-personal>
+    <app-profile-info-personal [user]="userProfileService.user"></app-profile-info-personal>
   </div>
   <div class="profile-info__card">
-    <app-profile-info-contact></app-profile-info-contact>
+    <app-profile-info-contact [user]="userProfileService.user"></app-profile-info-contact>
   </div>
   <div class="profile-info__card">
-    <app-profile-info-education></app-profile-info-education>
+    <app-profile-info-education [user]="userProfileService.user"></app-profile-info-education>
   </div>
   <div class="profile-info__card">
-    <app-profile-info-experience></app-profile-info-experience>
+    <app-profile-info-experience [user]="userProfileService.user"></app-profile-info-experience>
   </div>
 </div>

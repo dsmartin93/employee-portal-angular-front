@@ -4,4 +4,7 @@
       <span>{{ 'profile.info.experience.title' | translate }}</span>
     </mat-card-title>
   </mat-card-header>
+  <mat-card-content>
+    <ngx-json-viewer [json]="user?.experience" [expanded]="true"></ngx-json-viewer>
+  </mat-card-content>
 </mat-card>
