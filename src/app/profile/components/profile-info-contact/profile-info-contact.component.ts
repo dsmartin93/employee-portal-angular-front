@@ -13,7 +13,9 @@ export class ProfileInfoContactComponent implements OnInit {
   constructor() { }
 
   public ngOnInit(): void {
-
+    setTimeout(() => {
+      this.user
+    }, 3000);
 
   }
 }

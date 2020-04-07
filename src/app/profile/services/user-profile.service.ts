@@ -2,6 +2,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from 'src/app/core/services/api.service';
+import { Subscription, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 export class UserProfileService {
 
   public user: any = {};
+  private profileInfoSubscription: any;
 
   constructor(
     private apiService: ApiService,
@@ -16,15 +18,22 @@ export class UserProfileService {
   ) { }
 
   public getProfileInfo(): any {
+    return this.httpClient.get<any>(this.apiService.getApi('get-profile-info')).
+      pipe(
+        map(
+          (res) => {
+            this.user = res;
+            return this.user;
+          }
+        )
+      );
+  }
 
-    return this.httpClient.get<any>(this.apiService.getApi('get-profile-info')).subscribe(
-      (res) => {
-        this.user = res;
-      },
-      ((err) => {
-        console.error(err);
-      })
-    );
+  public getProfileInfoSubscription(): Observable<any> {
+    if (!this.profileInfoSubscription) {
+      this.profileInfoSubscription = this.getProfileInfo();
+    }
+    return this.profileInfoSubscription
   }
 
 }
