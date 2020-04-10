@@ -9,6 +9,7 @@
       <app-spinner></app-spinner>
     </div>
     <div *ngIf="user?.contact">
-      <ngx-json-viewer [json]="user?.contact" [expanded]="true"></ngx-json-viewer>
-    </div>  </mat-card-content>
+      <app-contact-data [contact]="user?.contact"></app-contact-data>
+    </div>
+  </mat-card-content>
 </mat-card>

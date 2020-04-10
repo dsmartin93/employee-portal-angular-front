@@ -9,6 +9,8 @@
       <app-spinner></app-spinner>
     </div>
     <div *ngIf="user?.experience">
-      <ngx-json-viewer [json]="user?.experience" [expanded]="true"></ngx-json-viewer>
-    </div>  </mat-card-content>
+      <app-experience-data *ngIf="user?.experience" [experience]="user?.experience"></app-experience-data>
+    </div>
+  </mat-card-content>
+
 </mat-card>

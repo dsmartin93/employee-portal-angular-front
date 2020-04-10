@@ -12,6 +12,10 @@ import { ProfileInfoExperienceComponent } from './components/profile-info-experi
 import { MatCardModule } from '@angular/material/card';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { SharedModule } from '../shared/shared.module';
+import { EducationDataComponent } from './components/profile-info-education/education-data/education-data.component';
+import { ContactDataComponent } from './components/profile-info-contact/contact-data/contact-data.component';
+import { PersonalDataComponent } from './components/profile-info-personal/personal-data/personal-data.component';
+import { ExperienceDataComponent } from './components/profile-info-experience/experience-data/experience-data.component';
 
 
 @NgModule({
@@ -21,7 +25,11 @@ import { SharedModule } from '../shared/shared.module';
     ProfileInfoContactComponent,
     ProfileInfoEducationComponent,
     ProfileInfoPersonalComponent,
-    ProfileInfoExperienceComponent
+    ProfileInfoExperienceComponent,
+    EducationDataComponent,
+    ContactDataComponent,
+    PersonalDataComponent,
+    ExperienceDataComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,20 @@
+<div class="experience-data__container">
+  <div *ngFor="let item of experience">
+    <h3>{{ item.position }} - {{ item.company }}</h3>
+    <dl class="experience-data__item">
+      <dt>Position</dt>
+      <dd>{{ item.position }}</dd>
+      <dt>Company</dt>
+      <dd>{{ item.company }}</dd>
+      <dt>City</dt>
+      <dd>{{ item.city }}</dd>
+      <dt>Date Start</dt>
+      <dd>{{ item.date_start }}</dd>
+      <dt>Date End</dt>
+      <dd>{{ item.date_end }}</dd>
+      <dt>Comment</dt>
+      <dd>{{ item.comments }}</dd>
+    </dl>
+  </div>
+
+</div>
