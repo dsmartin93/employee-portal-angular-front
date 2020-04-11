@@ -14,7 +14,15 @@ export class ProfileInfoComponent implements OnInit {
 
   constructor(
     private userProfileService: UserProfileService
-  ) { }
+  ) {
+    this.userProfileSubscription =
+      this.userProfileService.getProfileInfoObservable().subscribe(
+        (res) => {
+          this.userProfileSubscription.unsubscribe();
+          this.user = res;
+        }
+      );
+  }
 
   public ngOnInit(): void {
     this.userProfileSubscription = this.userProfileService.getProfileInfoSubscription().subscribe(

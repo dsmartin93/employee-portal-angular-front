@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/users/services/user.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-user-info',
@@ -15,7 +16,11 @@ export class DashboardUserInfoComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.user = this.userService.user;
+    const userSubscription: Subscription = this.userService.getUserObservable().subscribe(
+      (res) => {
+        this.user = res;
+        userSubscription.unsubscribe();
+      });
 
   }
 

@@ -5,6 +5,11 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <ngx-json-viewer [json]="user?.contact" [expanded]="true"></ngx-json-viewer>
+    <div *ngIf="!user?.contact">
+      <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="user?.contact">
+      <app-contact-data [contact]="user?.contact"></app-contact-data>
+    </div>
   </mat-card-content>
 </mat-card>
