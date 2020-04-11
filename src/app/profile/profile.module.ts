@@ -1,3 +1,5 @@
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +18,9 @@ import { EducationDataComponent } from './components/profile-info-education/educ
 import { ContactDataComponent } from './components/profile-info-contact/contact-data/contact-data.component';
 import { PersonalDataComponent } from './components/profile-info-personal/personal-data/personal-data.component';
 import { ExperienceDataComponent } from './components/profile-info-experience/experience-data/experience-data.component';
+import { ProfileInfoEditComponent } from './components/profile-info-edit/profile-info-edit.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -29,7 +34,8 @@ import { ExperienceDataComponent } from './components/profile-info-experience/ex
     EducationDataComponent,
     ContactDataComponent,
     PersonalDataComponent,
-    ExperienceDataComponent
+    ExperienceDataComponent,
+    ProfileInfoEditComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +43,11 @@ import { ExperienceDataComponent } from './components/profile-info-experience/ex
     TranslateModule,
     MatCardModule,
     NgxJsonViewerModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule
   ]
 })
 export class ProfileModule { }
