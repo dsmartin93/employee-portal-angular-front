@@ -38,7 +38,7 @@ export class HttpInterceptorService {
             }
           }
 
-          this.authService.deleteAuthData();
+          // this.authService.deleteAuthData();
 
         }
       )

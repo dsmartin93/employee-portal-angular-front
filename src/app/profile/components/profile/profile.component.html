@@ -1,2 +1,10 @@
 <h2>{{ 'profile.title' | translate }}</h2>
-<app-profile-info></app-profile-info>
+<div>
+  <a mat-button type="button" [routerLink]="['/profile', 'info']" routerLinkActive="router-link-active">
+    {{ 'profile' | translate }}
+  </a>
+  <a mat-button type="button" [routerLink]="['/profile', 'edit']" routerLinkActive="router-link-active">
+    {{ 'edit' | translate }}
+  </a>
+</div>
+<router-outlet></router-outlet>

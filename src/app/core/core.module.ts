@@ -34,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
     multi: true
   }]
 })
+
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {

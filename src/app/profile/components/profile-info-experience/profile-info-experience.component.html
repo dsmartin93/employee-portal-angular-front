@@ -4,4 +4,13 @@
       <span>{{ 'profile.info.experience.title' | translate }}</span>
     </mat-card-title>
   </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="!user?.experience">
+      <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="user?.experience">
+      <app-experience-data *ngIf="user?.experience" [experience]="user?.experience"></app-experience-data>
+    </div>
+  </mat-card-content>
+
 </mat-card>

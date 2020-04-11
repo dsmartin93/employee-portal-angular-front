@@ -1,0 +1,20 @@
+<div class="education-data__container">
+  <div *ngFor="let item of education">
+    <h3>{{ item.title }} - {{ item.university }}</h3>
+    <dl class="education-data__item">
+      <dt>Title</dt>
+      <dd>{{ item.title }}</dd>
+      <dt>Type</dt>
+      <dd>{{ item.type }}</dd>
+      <dt>University</dt>
+      <dd>{{ item.university }}</dd>
+      <dt>Finished</dt>
+      <dd>{{ item.finished }}</dd>
+      <dt>Date Start</dt>
+      <dd>{{ item.date_start }}</dd>
+      <dt>Date End</dt>
+      <dd>{{ item.date_end }}</dd>
+    </dl>
+  </div>
+
+</div>

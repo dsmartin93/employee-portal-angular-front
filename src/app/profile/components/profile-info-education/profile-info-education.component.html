@@ -4,4 +4,12 @@
       <span>{{ 'profile.info.education.title' | translate }}</span>
     </mat-card-title>
   </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="!user?.education">
+      <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="user?.education">
+      <app-education-data *ngIf="user?.education" [education]="user?.education"></app-education-data>
+    </div>
+  </mat-card-content>
 </mat-card>

@@ -1,4 +1,9 @@
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiService } from 'src/app/core/services/api.service';
+import { Observable, Subject } from 'rxjs';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,20 +11,36 @@ import { Injectable } from '@angular/core';
 export class UserProfileService {
 
   public user: any = {};
+  public userID: string;
+  private profileInfoObservable: Subject<any>;
+  private profileInfoSubscription: any;
 
-  constructor() { }
-
-  public getProfileInfo(): void {
-    this.user = {
-      basic: {
-        name: 'placeholderName',
-        surname1: 'placeholderSurname1',
-        surname2: 'placeholderSurname2'
-      },
-      contact: {
-        email: 'email@test.com',
-        phone: '645266447'
-      }
-    };
+  constructor(
+    private apiService: ApiService,
+    private httpClient: HttpClient,
+    private localStorageService: LocalStorageService
+  ) {
+    this.userID = localStorageService.getUser().id;
+    this.getProfileInfo();
   }
+
+  public getProfileInfo(): any {
+    return this.httpClient.get<any>(`${ this.apiService.getApi('get-profile-info') }${ this.userID }`).
+      pipe(
+        map(
+          (res) => {
+            this.user = res;
+            return this.user;
+          }
+        )
+      );
+  }
+
+  public getProfileInfoObservable(): Observable<any> {
+    if (!this.profileInfoObservable) {
+      this.profileInfoObservable = this.getProfileInfo();
+    }
+    return this.profileInfoObservable;
+  }
+
 }
